@@ -46,9 +46,11 @@ const Home = () => {
             </div>
           </div>
         </marquee>
-        <button className="btn btn-primary mt-5">
-          Click here to View More Projects
-        </button>
+        <Link to={"/projects"}>
+          <button className="btn btn-primary mt-5">
+            Click here to View More Projects
+          </button>
+        </Link>
       </div>
 
       {/* OUR TESTIMONIALS */}
@@ -56,7 +58,7 @@ const Home = () => {
         <h1 className="mb-3">Our Testimonials</h1>
         <div className="d-flex flex-wrap justify-content-evenly align-items-center mt-3 w-100">
           {/* CARD */}
-          <Card style={{ width: "18rem", marginTop:'12px' }}>
+          <Card style={{ width: "18rem", marginTop: "12px" }}>
             <Card.Body>
               <Card.Text className="d-flex justify-content-center align-items-center flex-column">
                 <img
@@ -81,7 +83,7 @@ const Home = () => {
             </Card.Body>
           </Card>
           {/* CARD */}
-          <Card style={{ width: "18rem", marginTop:'12px' }}>
+          <Card style={{ width: "18rem", marginTop: "12px" }}>
             <Card.Body>
               <Card.Text className="d-flex justify-content-center align-items-center flex-column">
                 <img
@@ -105,7 +107,7 @@ const Home = () => {
             </Card.Body>
           </Card>
           {/* CARD */}
-          <Card style={{ width: "18rem", marginTop:'12px' }}>
+          <Card style={{ width: "18rem", marginTop: "12px" }}>
             <Card.Body>
               <Card.Text className="d-flex justify-content-center align-items-center flex-column">
                 <img
