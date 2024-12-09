@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Card, Modal } from "react-bootstrap";
 import { FaGithub, FaLink } from "react-icons/fa";
+import SERVER_BASE_URL from "../services/serverUrl";
 
-const ProjectCard = () => {
+const ProjectCard = ({displayData}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,45 +14,41 @@ const ProjectCard = () => {
         <Card.Img
           height={"200px"}
           variant="top"
-          src="https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png"
+          src={`${SERVER_BASE_URL}/uploads/${displayData?.projectImage}`}
         />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{displayData?.title}</Card.Title>
         </Card.Body>
       </Card>
 
       {/* MODAL */}
       <Modal size="lg" centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>PROJECT DETAILS</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="row">
+          <div className="row m-4">
             <div className="col-lg-6">
               <img
                 className="img-fluid"
-                src="https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png"
+                src={`${SERVER_BASE_URL}/uploads/${displayData?.projectImage}`}
                 alt=""
               />
             </div>
             <div className="col-lg-6">
-              <h3>Title</h3>
-              <h6>
-                Languages Used : <span className="text-danger">Language</span>
+              <h3 className="">{displayData?.title}</h3>
+              <h6 className="mt-3">
+                Languages Used : <span className="text-danger">{displayData?.languages}</span>
               </h6>
-              <p style={{ textAlign: "justify" }}>
+              <p className="mt-4" style={{ textAlign: "justify" }}>
                
-                <span className="fw-bolder">Project Overview : </span>Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Iste ipsa,
-                est alias saepe incidunt nesciunt facilis nihil atque similique
-                quaerat placeat repellendus sit omnis consectetur! Dolorum
-                itaque earum quibusdam corporis!
+                <span className="fw-bolder">Project Overview : </span>{displayData?.overview}
               </p>
             </div>
           </div>
           <div className="mt-2 float-start">
-            <a href="https://github.com/githubtraining/hellogitworld.git" target="_blank" className="btn btn-secondary"><FaGithub style={{fontSize:'22px'}}/></a>
-            <a href="https://github.com/githubtraining/hellogitworld.git" target="_blank" className="btn btn-secondary"><FaLink style={{fontSize:'22px'}}/></a>
+            <a href={displayData?.github} target="_blank" className="btn btn-secondary"><FaGithub style={{fontSize:'22px'}}/></a>
+            <a href={displayData?.website} target="_blank" className="btn btn-secondary"><FaLink style={{fontSize:'22px'}}/></a>
           </div>
         </Modal.Body>
       </Modal>
