@@ -32,3 +32,18 @@ export const allProjectsAPI = async (reqHeader,searchKey)=>{
     //QUERY PARAMETER = ?search=${searchKey} AND QUERY STORED IN 'search'
     return await commonAPI("GET",`${SERVER_BASE_URL}/all-projects?search=${searchKey}`,{},reqHeader)
 }
+
+//EDIT PROJECT API
+export const updateProjectAPI = async(id,reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${SERVER_BASE_URL}/projects/${id}/edit`,reqBody,reqHeader)
+}
+
+//REMOVE PROJECT API
+export const deleteProjectAPI = async (id,reqHeader)=>{
+    return await commonAPI("DELETE",`${SERVER_BASE_URL}/projects/${id}/remove`,{},reqHeader)
+}
+
+//UPDATING USER PROFILE API
+export const updateUserAPI = async (reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${SERVER_BASE_URL}/user/edit`,reqBody,reqHeader)
+}
